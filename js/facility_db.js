@@ -5,7 +5,7 @@ var FacilityDb = function () {
   'use strict';
 
   this.getFacilityJson = function (map) {
-    var dataURL = "HTTP://localhost:3000/api/facilities",  //'https://data.oregon.gov/api/views/37wb-r4eb/rows.json',
+    var dataURL = "HTTP://localhost:3000/api/facilities",  
       that = this;
 
     $.ajax({
@@ -32,22 +32,12 @@ var FacilityDb = function () {
     var markerData;
 
     //console.groupCollapsed('Parse Marker Data Debugging');
-
       console.log('JSON received');
-      //markerData = _.reduce(facilityJson ? facilityJson.data : cachedFacilityData(), function (facilityObj, facility) {
-      //  facilityObj[facility[1]] = new facilityDb.Facility(facility);
-      //  return facilityObj;
-      //}, {});
-
       markerData = _.reduce(facilityJson, function (facilityObj, facility) {
         console.log("facility[1]: " + facility);
         facilityObj[facility.id] = new facilityDb.Facility(facility);
-
         return facilityObj;
       }, {});
-
-
-
     //console.dir(markerData);
     //console.groupEnd('Parse Marker Data Debugging');
 
@@ -78,7 +68,6 @@ var FacilityDb = function () {
     {
       $('#'+facility.id).prepend('<span class="label label-success pull-left label-as-badge">'+facility.availBeds+'</span>');
     }
-
     });
   }
 
@@ -123,13 +112,13 @@ var FacilityDb = function () {
   }
 
   this.Facility = function (facility, cached) {
-    this.id = facility.id //[ cached ? 2 : 1 ]
-    this.name = facility.name //[ cached ? 9 : 8 ]; //array position is different for cached data but only for facility name
-    this.lat = facility.lat //parseFloat(facility[19]);
-    this.lng = facility.lng //parseFloat(facility[18]);
-    this.totBeds = facility.totBeds //Math.floor(facility[23]);
-    this.availBeds = facility.availBeds //Math.floor(Math.random() * 11);
-    this.type = facility.type //facility[22];
+    this.id = facility.id 
+    this.name = facility.name 
+    this.lat = facility.lat 
+    this.lng = facility.lng 
+    this.totBeds = facility.totBeds 
+    this.availBeds = facility.availBeds
+    this.type = facility.type 
     this.address = {
       street: facility.street, 
       city:   facility.city, 
@@ -138,8 +127,8 @@ var FacilityDb = function () {
       county: facility.county, 
       phone:  facility.phone 
     };
-    this.website = facility.website //facility[20];
-    this.medicareId = facility.medicareId //facility[25];
+    this.website = facility.website
+    this.medicareId = facility.medicareId
   };
 
   this.Facility.prototype.returnMarker = function (map) {
