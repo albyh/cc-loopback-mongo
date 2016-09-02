@@ -1,6 +1,10 @@
 #Care-Compass
 ###Version History
 
+###Date: 2016-09-01
+
+#####Implemented persistent storage using Node.js, Loopback, and MongoDB.
+
 ###Date: 2016-05-31
 
 #####mapping.js

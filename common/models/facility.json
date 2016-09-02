@@ -7,53 +7,57 @@
     "validateUpsert": true
   },
   "properties": {
-    "type": {
-      "type": "string"
-    },
-    "address": {
-      "type": "string"
-    },
-    "street": {
-      "type": "string"
-    },
-    "city": {
-      "type": "string"
-    },
-    "state": {
-      "type": "string"
-    },
     "county": {
-      "type": "string"
-    },
-    "phone": {
-      "type": "string"
-    },
-    "website": {
       "type": "string"
     },
     "medicareId": {
       "type": "string"
     },
+    "phone": {
+      "type": "string"
+    },
+    "state": {
+      "type": "string"
+    },
+    "street": {
+      "type": "string"
+    },
+    "website": {
+      "type": "string"
+    },
     "lat": {
-      "type": "number"
+      "type": "number",
+      "required": true
     },
     "lng": {
-      "type": "number"
-    },
-    "totBeds": {
-      "type": "number"
-    },
-    "availBeds": {
-      "type": "number"
-    },
-    "id": {
-      "type": "string",
-      "id": true,
+      "type": "number",
       "required": true
     },
     "name": {
       "type": "string",
       "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "zip": {
+      "type": "number"
+    },
+    "totBeds": {
+      "type": "number",
+      "required": true
+    },
+    "availBeds": {
+      "type": "number",
+      "required": true
+    },
+    "type": {
+      "type": "string"
+    },
+    "id": {
+      "type": "string",
+      "id": true
     }
   },
   "validations": [],
